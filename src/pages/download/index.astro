@@ -1,0 +1,30 @@
+---
+import { googlePlayUrl } from '../../config/links';
+import { assetUrl } from '../../config/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Cyprus Step-by-Step">
+  <main class="download-page">
+    <section class="download-card" aria-labelledby="page-title">
+      <div class="language-switcher" aria-label="Language">
+        <button type="button" class="language-button" data-language="en" aria-pressed="true">EN</button>
+        <button type="button" class="language-button" data-language="ru" aria-pressed="false">RU</button>
+        <button type="button" class="language-button" data-language="el" aria-pressed="false">EL</button>
+      </div>
+
+      <img class="app-icon" src={assetUrl('app-icon.png')} width="144" height="144" alt="Cyprus Step-by-Step" />
+      <h1 id="page-title">Cyprus Step-by-Step</h1>
+      <p class="description" data-i18n="description">Practical step-by-step guides for life in Cyprus, with personalised checklists, official source links, progress tracking and reminders.</p>
+
+      <div class="actions">
+        <a class="button button-primary" data-google-play href={googlePlayUrl}><span data-i18n="googlePlay">Get it on Google Play</span></a>
+        <button class="button button-secondary" type="button" data-ios-interest><span data-i18n="ios">iOS version</span></button>
+      </div>
+      <p class="status" data-ios-status aria-live="polite"></p>
+    </section>
+  </main>
+  <script>
+    import '../../scripts/download';
+  </script>
+</BaseLayout>

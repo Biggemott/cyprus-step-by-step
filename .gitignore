@@ -1,0 +1,9 @@
+/_workspace/
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+.astro/
+playwright-report/
+test-results/
