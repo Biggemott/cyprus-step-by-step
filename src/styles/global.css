@@ -117,15 +117,6 @@ h1 {
   outline-offset: 3px;
 }
 
-.status {
-  min-height: 3.2em;
-  margin: 16px auto 0;
-  color: #36515a;
-  font-size: 0.9rem;
-  line-height: 1.45;
-  white-space: pre-line;
-}
-
 @media (min-width: 640px) {
   .download-page {
     padding: 48px;
