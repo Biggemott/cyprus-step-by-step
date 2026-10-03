@@ -1,5 +1,5 @@
-import { googlePlayUrl } from '../config/links';
-import { translations, type Language } from '../i18n/translations';
+import { appStoreUrl, googlePlayUrl } from '../config/links';
+import { translations } from '../i18n/translations';
 import { initLanguage } from './language';
 
 const track = (eventName: string) => window.umami?.track(eventName);
@@ -12,17 +12,18 @@ const isIos = () => {
 
 const isAndroid = () => /Android/i.test(navigator.userAgent);
 
-const startAndroidRedirect = () => {
+// Waits briefly for Umami so the redirect is counted, but never longer than 200ms.
+const startStoreRedirect = (storeUrl: string, eventName: string) => {
   let redirected = false;
   const redirect = () => {
     if (redirected) return;
     redirected = true;
     window.clearInterval(poll);
-    window.location.replace(googlePlayUrl);
+    window.location.replace(storeUrl);
   };
   const tryTrackAndRedirect = () => {
     if (window.umami) {
-      track('android_auto_redirect');
+      track(eventName);
       redirect();
     }
   };
@@ -31,22 +32,15 @@ const startAndroidRedirect = () => {
   window.setTimeout(redirect, 200);
 };
 
-initLanguage(translations, (language) => {
-  const status = document.querySelector<HTMLElement>('[data-ios-status]');
-  if (status?.textContent?.trim()) {
-    status.textContent = translations[language].iosUnavailable;
-  }
-});
+initLanguage(translations);
 
 document.querySelector<HTMLAnchorElement>('[data-google-play]')?.addEventListener('click', () => {
   track('google_play_click');
 });
 
-document.querySelector<HTMLButtonElement>('[data-ios-interest]')?.addEventListener('click', () => {
-  track('ios_interest');
-  const status = document.querySelector<HTMLElement>('[data-ios-status]');
-  const activeLanguage = document.documentElement.lang as Language;
-  if (status) status.textContent = translations[activeLanguage].iosUnavailable;
+document.querySelector<HTMLAnchorElement>('[data-app-store]')?.addEventListener('click', () => {
+  track('app_store_click');
 });
 
-if (isAndroid() && !isIos()) startAndroidRedirect();
+if (isIos()) startStoreRedirect(appStoreUrl, 'ios_auto_redirect');
+else if (isAndroid()) startStoreRedirect(googlePlayUrl, 'android_auto_redirect');

@@ -1,5 +1,5 @@
 ---
-import { googlePlayUrl } from '../../config/links';
+import { appStoreUrl, googlePlayUrl } from '../../config/links';
 import { assetUrl } from '../../config/site';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -16,9 +16,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <div class="actions">
         <a class="button button-primary" data-google-play href={googlePlayUrl}><span data-i18n="googlePlay">Get it on Google Play</span></a>
-        <button class="button button-secondary" type="button" data-ios-interest><span data-i18n="ios">iOS version</span></button>
+        <a class="button button-primary" data-app-store href={appStoreUrl}><span data-i18n="appStore">Download on the App Store</span></a>
       </div>
-      <p class="status" data-ios-status aria-live="polite"></p>
     </section>
   </main>
   <script>
