@@ -13,14 +13,18 @@ Current live page:
 The current web experience provides a lightweight platform-aware download page:
 
 - Android visitors are redirected to the published Google Play app.
-- iOS visitors can register interest while the public iOS version is not yet available.
-- Desktop and other platforms can choose the available platform options.
+- iOS and iPadOS visitors are redirected to the App Store app.
+- Desktop and other platforms can choose Google Play or the App Store.
 - English, Russian and Greek are supported.
 - Anonymous traffic and interaction analytics are measured with Umami.
 
 Google Play:
 
 [https://play.google.com/store/apps/details?id=com.cyprussteps.app](https://play.google.com/store/apps/details?id=com.cyprussteps.app)
+
+App Store:
+
+[https://apps.apple.com/app/id6818281986](https://apps.apple.com/app/id6818281986)
 
 ## Tech stack
 
