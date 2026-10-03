@@ -1,17 +1,14 @@
 ---
 import { appStoreUrl, googlePlayUrl } from '../../config/links';
 import { assetUrl } from '../../config/site';
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Cyprus Step-by-Step">
   <main class="download-page">
     <section class="download-card" aria-labelledby="page-title">
-      <div class="language-switcher" aria-label="Language">
-        <button type="button" class="language-button" data-language="en" aria-pressed="true">EN</button>
-        <button type="button" class="language-button" data-language="ru" aria-pressed="false">RU</button>
-        <button type="button" class="language-button" data-language="el" aria-pressed="false">EL</button>
-      </div>
+      <LanguageSwitcher />
 
       <img class="app-icon" src={assetUrl('app-icon.png')} width="144" height="144" alt="Cyprus Step-by-Step" />
       <h1 id="page-title">Cyprus Step-by-Step</h1>

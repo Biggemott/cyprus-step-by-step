@@ -4,9 +4,10 @@ Cyprus Step-by-Step is a free app with practical step-by-step guides for life in
 
 This repository contains the public website for Cyprus Step-by-Step.
 
-Current live page:
+Live pages:
 
-[https://biggemott.github.io/cyprus-step-by-step/download/](https://biggemott.github.io/cyprus-step-by-step/download/)
+- Download: [https://biggemott.github.io/cyprus-step-by-step/download/](https://biggemott.github.io/cyprus-step-by-step/download/)
+- Support: [https://biggemott.github.io/cyprus-step-by-step/support/](https://biggemott.github.io/cyprus-step-by-step/support/)
 
 ## Smart download page
 
@@ -25,6 +26,10 @@ Google Play:
 App Store:
 
 [https://apps.apple.com/app/id6818281986](https://apps.apple.com/app/id6818281986)
+
+## Support page
+
+The support page is the App Store "Support URL". It has the contact email, a short FAQ, and links to the privacy policy and the download page, in English, Russian and Greek. English is rendered in the HTML, so the page is readable without JavaScript.
 
 ## Tech stack
 
