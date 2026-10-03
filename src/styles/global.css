@@ -112,7 +112,8 @@ h1 {
 }
 
 .button:focus-visible,
-.language-button:focus-visible {
+.language-button:focus-visible,
+.support-email:focus-visible {
   outline: 3px solid #e69535;
   outline-offset: 3px;
 }
@@ -124,6 +125,56 @@ h1 {
   font-size: 0.9rem;
   line-height: 1.45;
   white-space: pre-line;
+}
+
+.support-card {
+  width: min(100%, 560px);
+}
+
+.page-label {
+  margin: 6px 0 0;
+  color: #226b68;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.support-section {
+  margin: 0 0 28px;
+  color: #36515a;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.support-section h2 {
+  margin: 0 0 10px;
+  color: #112f3b;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.support-section p {
+  margin: 0 0 10px;
+}
+
+.support-email {
+  color: #176c68;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.faq {
+  margin: 0;
+}
+
+.faq dt {
+  margin-top: 16px;
+  color: #112f3b;
+  font-weight: 700;
+}
+
+.faq dd {
+  margin: 4px 0 0;
 }
 
 @media (min-width: 640px) {

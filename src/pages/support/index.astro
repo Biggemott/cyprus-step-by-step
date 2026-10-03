@@ -1,0 +1,57 @@
+---
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+import { privacyPolicyUrl, supportEmail } from '../../config/links';
+import { assetUrl } from '../../config/site';
+import { supportTranslations } from '../../i18n/translations';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// English is rendered into the HTML so the page reads without JavaScript; the script swaps languages.
+const t = supportTranslations.en;
+const faq = [
+  ['faqDataQuestion', 'faqDataAnswer'],
+  ['faqAnalyticsQuestion', 'faqAnalyticsAnswer'],
+  ['faqNotificationsQuestion', 'faqNotificationsAnswer'],
+  ['faqDeleteQuestion', 'faqDeleteAnswer'],
+  ['faqOfficialQuestion', 'faqOfficialAnswer'],
+] as const;
+---
+
+<BaseLayout title="Support · Cyprus Step-by-Step">
+  <main class="download-page">
+    <section class="download-card support-card" aria-labelledby="page-title">
+      <LanguageSwitcher />
+
+      <img class="app-icon" src={assetUrl('app-icon.png')} width="144" height="144" alt="Cyprus Step-by-Step" />
+      <h1 id="page-title">Cyprus Step-by-Step</h1>
+      <p class="page-label" data-i18n="support">{t.support}</p>
+      <p class="description" data-i18n="intro">{t.intro}</p>
+
+      <section class="support-section" aria-labelledby="contact-title">
+        <h2 id="contact-title" data-i18n="contactTitle">{t.contactTitle}</h2>
+        <p data-i18n="contactText">{t.contactText}</p>
+        <p><a class="support-email" href={`mailto:${supportEmail}`}>{supportEmail}</a></p>
+        <p data-i18n="contactNote">{t.contactNote}</p>
+      </section>
+
+      <section class="support-section" aria-labelledby="faq-title">
+        <h2 id="faq-title" data-i18n="faqTitle">{t.faqTitle}</h2>
+        <dl class="faq">
+          {faq.map(([question, answer]) => (
+            <>
+              <dt data-i18n={question}>{t[question]}</dt>
+              <dd data-i18n={answer}>{t[answer]}</dd>
+            </>
+          ))}
+        </dl>
+      </section>
+
+      <nav class="actions support-links" aria-label="Links">
+        <a class="button button-secondary" href={privacyPolicyUrl}><span data-i18n="privacyPolicy">{t.privacyPolicy}</span></a>
+        <a class="button button-primary" href={assetUrl('download/')}><span data-i18n="download">{t.download}</span></a>
+      </nav>
+    </section>
+  </main>
+  <script>
+    import '../../scripts/support';
+  </script>
+</BaseLayout>

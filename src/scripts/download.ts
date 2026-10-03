@@ -1,31 +1,8 @@
 import { googlePlayUrl } from '../config/links';
 import { translations, type Language } from '../i18n/translations';
+import { initLanguage } from './language';
 
 const track = (eventName: string) => window.umami?.track(eventName);
-
-const languageFromBrowser = (): Language => {
-  const locales = navigator.languages?.length ? navigator.languages : [navigator.language];
-  const locale = locales.find(Boolean)?.toLowerCase() ?? '';
-  if (locale.startsWith('ru')) return 'ru';
-  if (locale.startsWith('el')) return 'el';
-  return 'en';
-};
-
-const setLanguage = (language: Language) => {
-  document.documentElement.lang = language;
-  document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((element) => {
-    const key = element.dataset.i18n as keyof (typeof translations)[Language];
-    element.textContent = translations[language][key];
-  });
-  document.querySelectorAll<HTMLButtonElement>('[data-language]').forEach((button) => {
-    button.setAttribute('aria-pressed', String(button.dataset.language === language));
-  });
-
-  const status = document.querySelector<HTMLElement>('[data-ios-status]');
-  if (status?.textContent?.trim()) {
-    status.textContent = translations[language].iosUnavailable;
-  }
-};
 
 const isIos = () => {
   const userAgent = navigator.userAgent;
@@ -54,11 +31,11 @@ const startAndroidRedirect = () => {
   window.setTimeout(redirect, 200);
 };
 
-const initialLanguage = languageFromBrowser();
-setLanguage(initialLanguage);
-
-document.querySelectorAll<HTMLButtonElement>('[data-language]').forEach((button) => {
-  button.addEventListener('click', () => setLanguage(button.dataset.language as Language));
+initLanguage(translations, (language) => {
+  const status = document.querySelector<HTMLElement>('[data-ios-status]');
+  if (status?.textContent?.trim()) {
+    status.textContent = translations[language].iosUnavailable;
+  }
 });
 
 document.querySelector<HTMLAnchorElement>('[data-google-play]')?.addEventListener('click', () => {
