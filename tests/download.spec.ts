@@ -152,12 +152,15 @@ test('manual Google Play click tracks and opens the canonical URL', async ({ bro
 test('language switching updates strings and document language', async ({ page }) => {
   await page.goto(basePath);
   await expect(page.getByRole('link', { name: 'Google Play' })).toBeVisible();
+  await expect(page.getByText('important dates and reminders for life in Cyprus')).toBeVisible();
   await page.getByRole('button', { name: 'RU' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'ru');
+  await expect(page.getByText('важные даты и напоминания для жизни на Кипре')).toBeVisible();
   await expect(page.getByRole('link', { name: 'App Store' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Google Play' })).toBeVisible();
   await page.getByRole('button', { name: 'EL' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'el');
+  await expect(page.getByText('σημαντικές ημερομηνίες και υπενθυμίσεις για τη ζωή στην Κύπρο')).toBeVisible();
   await expect(page.getByRole('link', { name: 'App Store' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Google Play' })).toBeVisible();
 });

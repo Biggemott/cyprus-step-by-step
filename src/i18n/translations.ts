@@ -8,17 +8,17 @@ export const translations: Record<Language, {
   appStore: string;
 }> = {
   en: {
-    description: 'Practical step-by-step guides for life in Cyprus, with personalised checklists, official source links, progress tracking and reminders.',
+    description: 'Practical guides, tailored checklists, important dates and reminders for life in Cyprus, with direct links to official sources.',
     googlePlay: 'Google Play',
     appStore: 'App Store',
   },
   ru: {
-    description: 'Практические пошаговые инструкции для жизни на Кипре: персональные чек-листы, официальные источники, прогресс и напоминания.',
+    description: 'Практические инструкции, чек-листы под вашу ситуацию, важные даты и напоминания для жизни на Кипре — со ссылками на официальные источники.',
     googlePlay: 'Google Play',
     appStore: 'App Store',
   },
   el: {
-    description: 'Πρακτικοί οδηγοί βήμα προς βήμα για τη ζωή στην Κύπρο, με εξατομικευμένες λίστες ελέγχου, επίσημες πηγές, παρακολούθηση προόδου και υπενθυμίσεις.',
+    description: 'Πρακτικοί οδηγοί, προσαρμοσμένες λίστες ελέγχου, σημαντικές ημερομηνίες και υπενθυμίσεις για τη ζωή στην Κύπρο, με άμεσους συνδέσμους προς επίσημες πηγές.',
     googlePlay: 'Google Play',
     appStore: 'App Store',
   },

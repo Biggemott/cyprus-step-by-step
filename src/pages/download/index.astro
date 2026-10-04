@@ -2,6 +2,7 @@
 import { appStoreUrl, googlePlayUrl } from '../../config/links';
 import { assetUrl } from '../../config/site';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+import { translations } from '../../i18n/translations';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
@@ -12,7 +13,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <img class="app-icon" src={assetUrl('app-icon.png')} width="144" height="144" alt="Cyprus Step-by-Step" />
       <h1 id="page-title">Cyprus Step-by-Step</h1>
-      <p class="description" data-i18n="description">Practical step-by-step guides for life in Cyprus, with personalised checklists, official source links, progress tracking and reminders.</p>
+      <p class="description" data-i18n="description">{translations.en.description}</p>
 
       <div class="actions">
         <a class="button button-primary" data-google-play href={googlePlayUrl}><span data-i18n="googlePlay">Get it on Google Play</span></a>
