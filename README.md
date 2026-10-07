@@ -1,8 +1,6 @@
 # Cyprus Step-by-Step
 
-Cyprus Step-by-Step is a free app with practical guides, tailored checklists, important dates and reminders for life in Cyprus, with direct links to official sources.
-
-This repository contains the public website for Cyprus Step-by-Step.
+Public website for Cyprus Step-by-Step, my Kotlin Multiplatform + Compose Multiplatform app (Android on Google Play; iOS currently in App Store review). The app itself is closed-source.
 
 Live pages:
 
